@@ -1,0 +1,83 @@
+<div class="container mt-4">
+
+    <h2>Nuevo Animalito</h2>
+
+    <!-- novalidate: no vamos a usar las validaciones de html sino las de boostrap -->
+    <!-- class="needs-validation": indica que se vamos a usar las validaciones de boostrap -->
+    <form novalidate class="needs-validation">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre del Animal:</label>
+            <input type="text" name="nombre" [(ngModel)]="animal.nombre" id="name" class="form-control" placeholder="Escriba el nombre del animal">
+            <!-- Validación + Boostrap -->
+            <div class="invalid-feedback">
+                El nombre del animal es obligatorio.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="specie" class="form-label">Especie:</label>
+            <input type="text" name="especie"[(ngModel)]="animal.especie" id="specie" class="form-control" placeholder="Escriba la especie del animal">
+            <!-- Validación + Boostrap -->
+            <div class="invalid-feedback">
+                La especie del animal es obligatoria.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="race" class="form-label">Raza:</label>
+            <input type="text" name="raza"[(ngModel)]="animal.raza" id="race" class="form-control" placeholder="Escriba la raza del animal">
+            <!-- Validación + Boostrap -->
+            <div class="invalid-feedback">
+                La raza del animal es obligatoria.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="age" class="form-label">Edad:</label>
+            <input type="text" name="edad"[(ngModel)]="animal.edad" id="age" class="form-control" placeholder="Escriba la edad aproximada del animal">
+            <!-- Validación + Boostrap -->
+            <div class="invalid-feedback">
+                La edad del animal es obligatoria.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="status" class="form-label">Estado:</label>
+            <select name="estado" [(ngModel)]="animal.estado" id="status" class="form-select">
+                <option value="" disabled selected>Seleccione un estado:</option>
+                <option value="Disponible">Disponible</option>
+                <option value="Adoptado">Adoptado</option>
+            </select>
+            <!-- Validación con Bootstrap -->
+            <div class="invalid-feedback">
+                Debe seleccionar un estado para el animal.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Seleccione la Imagen:</label>
+            <input type="file" name="imagen"[(ngModel)]="animal.imagen" id="imagen" class="form-control" (change)="insertarImagen($event)">
+            <!-- Validación + Boostrap -->
+            <div class="invalid-feedback">
+                Debe añadir una imagen del animal.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="agregarAnimal()">Guardar</button>
+    </form>
+
+    <br>
+
+    @if(mostrarAlerta){
+        <!-- Alerta que se muestra cuando añadimos un nuevo producto correctamente -->
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <!-- Agregamos nuestro icono de GoogleFonts -->
+            <span class="material-symbols-outlined">check_circle</span>
+            <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg> -->
+            <div>
+                Animal añadido al Refugio correctamente :D
+            </div>
+        </div>
+    }
+
+</div>

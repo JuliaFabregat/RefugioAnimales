@@ -1,0 +1,89 @@
+<!--  Animal -->
+<div class="container mt-4">
+    <h1 class="text-center">Administración de Animales</h1>
+
+    <!-- Filtro -->
+    <div class="container mt-4">
+        <div class="mb-3 d-flex">
+            <label for="filtroEstado" class="form-label me-2">Filtrar por Estado: </label>
+            <select id="filtroEstado" class="form-select me-2" [(ngModel)]="filtroEstado" (change)="filtrarPorEstado()">
+                <option value="">Todos</option>
+                <option value="Disponible">Disponible</option>
+                <option value="Adoptado">Adoptado</option>
+            </select>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Estado</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for(animal of animales; track animal.id) {
+                <tr>
+                    <td>{{animal.nombre}}</td>
+                    <td>{{animal.edad}}</td>
+                    <td>{{animal.estado}}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="animalAEliminar(animal)"> Borrar </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" (click)="seleccionar(animal)"> Seleccionar </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="card p-3 mt-4">
+        <h5 class="card-title">Modificación de Animales</h5>
+            <div class="mb-3">
+                <label class="form-label">Nombre:</label>
+                <input type="text" class="form-control" [(ngModel)]="animal.nombre" />
+            </div>
+    
+            <div class="mb-3">
+                <label class="form-label">Edad:</label>
+                <input type="text" class="form-control" [(ngModel)]="animal.edad" />
+            </div>
+    
+            <div class="mb-3">
+                <select [(ngModel)]="animal.estado">
+                    <option value="">Seleccione...</option>
+                    <option value="Disponible">Disponible</option>
+                    <option value="Adoptado">Adoptado</option>
+                </select>
+            </div>
+    
+            <div class="d-flex gap-2">
+                <!--<button class="btn btn-success" (click)="alta()">Agregar</button> -->
+                <button class="btn btn-warning" (click)="modificarAnimal()">Modificar</button>
+            </div>
+    </div>
+</div>
+
+<!-- Modal (Cuadro de diálogo) -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Está seguro de que desea eliminar el Animal?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="confirmarEliminacion()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
