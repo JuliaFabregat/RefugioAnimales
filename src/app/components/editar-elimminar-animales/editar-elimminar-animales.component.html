@@ -1,4 +1,3 @@
-<!--  Animal -->
 <div class="container mt-4">
     <h1 class="text-center">Administración de Animales</h1>
 
@@ -20,8 +19,7 @@
                 <th>Nombre</th>
                 <th>Edad</th>
                 <th>Estado</th>
-                <th></th>
-                <th></th>
+                <th colspan="2">Acciones</th>
             </tr>
         </thead>
 
@@ -30,30 +28,35 @@
                 <tr>
                     <td>{{animal.nombre}}</td>
                     <td>{{animal.edad}}</td>
-                    <td>{{animal.estado}}</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="animalAEliminar(animal)"> Borrar </button>
+                    <td [ngClass]="{ 'text-success': animal.estado === 'Disponible', 'text-danger': animal.estado === 'Adoptado' }">
+                        {{animal.estado}}
                     </td>
                     <td>
-                        <button class="btn btn-primary btn-sm" (click)="seleccionar(animal)"> Seleccionar </button>
+                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            (click)="animalAEliminar(animal)">Borrar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" (click)="seleccionar(animal)">Seleccionar</button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 
-    <div class="card p-3 mt-4">
-        <h5 class="card-title">Modificación de Animales</h5>
+    <!-- Sección de Modificación (solo visible cuando mostrarFormulario es true) -->
+    @if (mostrarFormulario) {
+        <div class="card p-3 mt-4">
+            <h5 class="card-title">Modificación de Animales</h5>
             <div class="mb-3">
                 <label class="form-label">Nombre:</label>
                 <input type="text" class="form-control" [(ngModel)]="animal.nombre" />
             </div>
-    
+
             <div class="mb-3">
                 <label class="form-label">Edad:</label>
                 <input type="text" class="form-control" [(ngModel)]="animal.edad" />
             </div>
-    
+
             <div class="mb-3">
                 <select [(ngModel)]="animal.estado">
                     <option value="">Seleccione...</option>
@@ -61,12 +64,12 @@
                     <option value="Adoptado">Adoptado</option>
                 </select>
             </div>
-    
+
             <div class="d-flex gap-2">
-                <!--<button class="btn btn-success" (click)="alta()">Agregar</button> -->
                 <button class="btn btn-warning" (click)="modificarAnimal()">Modificar</button>
             </div>
-    </div>
+        </div>
+    }
 </div>
 
 <!-- Modal (Cuadro de diálogo) -->
@@ -82,7 +85,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="confirmarEliminacion()">Aceptar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="confirmarEliminacion()">Aceptar</button>
             </div>
         </div>
     </div>

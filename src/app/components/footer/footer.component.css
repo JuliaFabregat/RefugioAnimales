@@ -1,0 +1,16 @@
+.footer{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 30px;
+
+    text-align: center;
+
+    .divFooter{
+        padding-top: 10px;
+        padding-bottom: 1px;
+
+        color: var(--cBlanco);
+        font-weight: bold;
+        background-color: var(--cPrincipal);
+    }
+}

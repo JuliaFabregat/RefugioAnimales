@@ -1,0 +1,15 @@
+.btn-primary{
+    background-color: var(--cPrincipal);
+    color: var(--cBlanco);
+    border: none;
+
+    font-weight: bold;
+}
+
+.btn-secondary{
+    background-color: red;
+    color: var(--cBlanco);
+    border: none;
+
+    font-weight: bold;
+}

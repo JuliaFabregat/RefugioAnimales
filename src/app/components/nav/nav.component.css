@@ -1,0 +1,51 @@
+.navbarBg{
+    background-color: var(--cPrincipal);
+
+    img{
+        width: auto;
+        height: 60px;
+
+        margin-right: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .nav-link{
+        color: var(--cBlanco);
+        font-family: var(--fSecundaria);
+        font-size: 18px;
+        margin-right: 10px;
+
+        /* Atributos para el hover */
+        padding: 5px;
+        border-radius: 10px;
+
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: var(--cBlanco);
+        color: var(--cPrincipal);
+
+        font-weight: bold;
+    }
+
+    /* .navLogo{
+        color: var(--cBlanco);
+        font-family: var(--fPrincipal);
+        font-size: 50px;
+    } */
+
+    /* .divNaming{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        
+        .namingRefugioAnimales{
+            font-size: 20px;
+            color: var(--cBlanco);
+            font-family: var(--fSecundaria);
+        }
+    } */
+
+}

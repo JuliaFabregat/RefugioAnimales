@@ -15,6 +15,7 @@ export class EditarElimminarAnimalesComponent {
   animales: any;
   animalBorrado: any;
   allAnimales: any = []; // Lista para filtrar
+  mostrarFormulario = false; // Bool para mostrar el formulario
 
   animal: Animales = {
     id: 0,
@@ -84,6 +85,9 @@ export class EditarElimminarAnimalesComponent {
   // Método para seleccionar un animal - SELECT
   seleccionar(animal: Animales) {
     console.log('Animal seleccionado:', animal);
+
+    // Mostrar formulario
+    this.mostrarFormulario = true; 
   
     this.animalesservice.seleccionar(animal).subscribe((result: any) => {
         if (result && result[0]) {
@@ -108,6 +112,9 @@ export class EditarElimminarAnimalesComponent {
         console.log('Datos modificados:' + datos);
 
         alert(datos['mensaje']);
+
+        // Ocultar formulario
+        this.mostrarFormulario = false;
         
         this.mostrarTodos();
       }

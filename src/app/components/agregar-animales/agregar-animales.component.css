@@ -1,0 +1,6 @@
+.btn{
+    background-color: var(--cPrincipal);
+    color: var(--cBlanco);
+
+    font-weight: bold;
+}

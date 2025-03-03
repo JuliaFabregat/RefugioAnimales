@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Variables Main */
+:root {
+    --cPrincipal: #588157;
+    --cNegro: #212529;
+    --cBlanco: #ffffff;
+
+    --fPrincipal: "Lilita One", serif;
+    --fSecundaria: "Montserrat", serif;
+}
+
+/* Reset básico */
+html, body {
+    height: 100%; /* El HTML como el BODY ocupan toda la altura */
+    margin: 0;
+}
+
+/* Contenedor global */
+.container-global {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    min-height: 100vh;      /* Contenedor ocupa toda la altura de la ventana */
+}
+
+/* Main (contenedor del contenido principal) */
+main {
+    flex: 1; /* Main crece para ocupar todo el espacio disponible */
+}

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditarElimminarAnimalesComponent } from './editar-elimminar-animales.component';
+import EditarElimminarAnimalesComponent from './editar-elimminar-animales.component';
 
 describe('EditarElimminarAnimalesComponent', () => {
   let component: EditarElimminarAnimalesComponent;
